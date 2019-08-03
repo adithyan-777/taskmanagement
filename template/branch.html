@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <!-- Required meta tags-->
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="au theme template">
+    <meta name="author" content="Hau Nguyen">
+    <meta name="keywords" content="au theme template">
+
+    <!-- Title Page-->
+    <title>Branch</title>
+
+    <!-- Fontfaces CSS-->
+    <link href="css/font-face.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+
+    <!-- Bootstrap CSS-->
+    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+
+    <!-- Vendor CSS-->
+    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+
+    <!-- Main CSS-->
+    <link href="css/theme.css" rel="stylesheet" media="all">
+
+    <script type="text/javascript" charset="utf-8" async defer>
+        function load() {
+            fetchdoc();
+        }
+    </script>
+<style type="text/css" media="screen">
+    .error{
+        color: red;
+    }    
+</style>
+</head>
+
+<body class="animsition" onload="load();">
+    <div class="page-wrapper">
+      <!-- HEADER MOBILE-->
+        <header class="header-mobile d-block d-lg-none">
+            <div class="header-mobile__bar">
+                <div class="container-fluid">
+                    <div class="header-mobile-inner">
+                        <a class="logo" href="index.html">
+                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                        </a>
+                        <button class="hamburger hamburger--slider" type="button">
+                            <span class="hamburger-box">
+                                <span class="hamburger-inner"></span>
+                            </span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <nav class="navbar-mobile">
+                <div class="container-fluid">
+                    <ul class="navbar-mobile__list list-unstyled">
+                    <li class="has-sub">
+                        <a class="js-arrow" href="#">
+                            <i class="fas fa-tachometer-alt"></i>Home</a>
+                        
+                        </li>
+                        <li>
+                            <a href="document.html">
+                                <i class="fas fa-chart-bar"></i>Document</a>
+                        </li>
+                        <li class="active">
+                            <a href="branch.html">
+                                <i class="far fa-check-square"></i>Branch</a>
+                        </li>
+                        <li>
+                            <a href="employee.html">
+                                <i class="fas fa-calendar-alt"></i>Employee</a>
+                        </li>
+                        <li>
+                            <a href="task.html">
+                                <i class="fas fa-map-marker-alt"></i>Task</a>
+                        </li>
+                         <li>
+                            <a href="expence.html">
+                                <i class="fas fa-map-marker-alt"></i>Expences</a>
+                        </li>
+                         <li>
+                            <a href="map.html">
+                                <i class="fas fa-map-marker-alt"></i>UI Element</a>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
+        </header>
+        <!-- END HEADER MOBILE-->
+
+        <!-- MENU SIDEBAR-->
+        <aside class="menu-sidebar d-none d-lg-block">
+            <div class="logo">
+                <a href="#">
+                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                </a>
+            </div>
+            <div class="menu-sidebar__content js-scrollbar1">
+                <nav class="navbar-sidebar">
+                    <ul class="list-unstyled navbar__list">
+                        <li class=" has-sub">
+                            <a class="js-arrow" href="#">
+                                <i class="fas fa-tachometer-alt"></i>Home</a>
+                        </li>
+                       <li>
+                            <a href="document.html">
+                                <i class="fas fa-chart-bar"></i>Document</a>
+                        </li>
+                        <li class="active">
+                            <a href="branch.html">
+                                <i class="far fa-check-square"></i>Branch</a>
+                        </li>
+                        <li>
+                            <a href="employee.html">
+                                <i class="fas fa-calendar-alt"></i>Employees</a>
+                        </li>
+                        <li>
+                            <a href="task.html">
+                                <i class="fas fa-map-marker-alt"></i>Task</a>
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="expence.html">
+                                <i class="fas fa-copy"></i>Expences</a>
+                            
+                        </li>
+                        <li class="has-sub">
+                            <a class="js-arrow" href="#">
+                              <i class="fas fa-desktop"></i>UI Element</a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </aside>
+        <!-- END MENU SIDEBAR-->
+
+
+<!-- PAGE CONTAINER-->
+    <div class="page-container">
+        <!-- HEADER DESKTOP-->
+          <header class="header-desktop">
+            <div class="section__content section__content--p30">
+                <div class="container-fluid">
+                    <div class="header-wrap">
+                        <form class="form-header" action="" method="POST">
+                            <input class="au-input au-input--xl" type="text" name="search" placeholder="Search for datas &amp; reports..." />
+                            <button class="au-btn--submit" type="submit">
+                                <i class="zmdi zmdi-search"></i>
+                            </button>
+                        </form>
+                       
+                            <div class="account-wrap">
+                                <div class="account-item clearfix js-item-menu">
+                                    <div class="image">
+                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                    </div>
+                                    <div class="content">
+                                        <a class="js-acc-btn" href="#">john doe</a>
+                                    </div>
+                                    <div class="account-dropdown js-dropdown">
+                                        <div class="info clearfix">
+                                            <div class="image">
+                                                <a href="#">
+                                                    <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                </a>
+                                            </div>
+                                            <div class="content">
+                                                <h5 class="name">
+                                                    <a href="#">john doe</a>
+                                                </h5>
+                                                <span class="email">johndoe@example.com</span>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__body">
+                                            <div class="account-dropdown__item">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-account"></i>Account</a>
+                                            </div>
+                                            <div class="account-dropdown__item">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-settings"></i>Setting</a>
+                                            </div>
+                                            <div class="account-dropdown__item">
+                                                <a href="#">
+                                                    <i class="zmdi zmdi-money-box"></i>Billing</a>
+                                            </div>
+                                        </div>
+                                        <div class="account-dropdown__footer">
+                                            <a href="#">
+                                                <i class="zmdi zmdi-power"></i>Logout</a>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+            </div>
+          </header>
+
+        <!-- HEADER DESKTOP-->
+        
+        <!-- MAIN CONTENT-->
+                <div class="main-content">
+                    <div class="section__content section__content--p30">
+                        <div class="container-fluid">
+                            <div class="row" >
+                                <div class="col-md-9 alertmsg" style="display:none;">
+                                    <div class="sufee-alert alert with-close alert-info alert-dismissible fade show">
+                                        <span class="badge badge-pill badge-secondary">Success</span>
+                                        You have successfully performed.
+                                        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                 </div>
+                            
+                                 <div class="col-lg-3 ml-auto" style="padding:12px;text-align: right;">
+                                    <div class="card-body">
+                                    <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
+                                    <i class="zmdi zmdi-plus"></i>Add branch</button>
+                                    </div>
+                                 </div>
+                                
+                            </div>
+                            <div class="row">
+          
+                             <div class="col-lg-12">
+                                    <div class="table-responsive table--no-card m-b-30">
+                                        <table class="table table-borderless table-striped table-earning">
+                                            <thead>
+                                                <tr>
+                                                    <th>Name</th>
+                                                    <th>Building</th>
+                                                    <th>District</th>
+                                                    <th>Email</th>
+                                                    <th class="text-center">Action</th>
+                                                    
+                                                </tr>
+                                            </thead>
+                                            <tbody class="branchtab">
+                                 
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                            </div>
+                    </div>
+                </div>
+             </div>
+    </div>
+    <!-- modal delete popup -->
+            <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
+             data-backdrop="static">
+                <div class="modal-dialog modal-sm" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="staticModalLabel">Delete Branch</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                            <p>
+                                Are you sure you want delete this entry ..???
+                            </p>
+                        </div>
+                        <input type="hidden" name="" class="dlt" >
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                            <button type="button" class="btn btn-primary" onclick="deletebranch();">Confirm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- end modal deletepopup -->
+
+
+<!-- MODDEL FOR ADD BRANCH -->    
+      <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="largeModalLabel"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center title-2">Branch Register</h3>
+                                        </div>
+                                        <hr>
+                                        <form id="formRegist" name="registration">
+                                            
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Branch Name *</label>
+                                                        <input id="brnchnm" name="brnchnm" type="text" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter branch name"
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                    
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="x_card_code" class="control-label mb-1">Building Name*</label>
+                                                        <div class="form-group">
+                                                            <input id="bld" name="bld" type="text" class="form-control cc-cvc" value="" data-val="true" placeholder="Please enter the building" autocomplete="off">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Place*</label>
+                                                        <input id="plc" name="plc" type="text" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter place" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                    
+                                                 <div class="col-6">
+                                                      <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">City*</label>
+                                                        <input id="cty" name="cty" type="tel" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter city" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Zip code*</label>
+                                                        <input id="pin" name="pin" type="number" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter the pin"
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Post*</label>
+                                                        <input id="pst" name="pst" type="tel" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter post" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-6">
+                                                   <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Select District *</label>
+                                                        <select id="sdist" name="sdist" type="text" class="form-control cc-exp">
+                                                            <option value="">Select district</option>
+                                                            <option value="Kasagode">Kasargode</option>
+                                                            <option value="Kannur">Kannur</option>
+                                                            <option value="Kozhikode">Kozhikode</option>
+                                                            <option value="Wayanad">Wayanad</option>
+                                                            <option value="Malappuram">Malappuram</option>
+                                                            <option value="Palakkad">Palakkad</option>
+                                                            <option value="Thrissur">Thrissur</option>
+                                                            <option value="Ernakulam">Eranakulam</option>
+                                                            <option value="Alapuzha">Alappuzha</option>
+                                                            <option value="Idukki">Idukki</option>
+                                                            <option value="Kottayam">Kottayam</option>
+                                                            <option value="Pathanamthitta">Pathanamthitta</option>
+                                                            <option value="Kollam">Kollam</option>
+                                                            <option value="Thiruvanandapuram">Thiruvanandapuram</option>
+                                                        </select>
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                     <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Phone *</label>
+                                                        <input id="phn" name="phn" type="number" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter phone"
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">E-Mail</label>
+                                                        <input id="mail" name="mail" type="email" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter Email" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+
+                                                    
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1"> Landmark</label>
+                                                    <div class="form-group">
+                                                        <input id="lm" name="lm" type="tel" class="form-control cc-cvc" value="" data-val="true" placeholder="Please enter landmark" autocomplete="off">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           
+                                            <div>
+                                                <button id="reg" type="submit" class="btn btn-lg btn-info btn-block">
+                                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                    <span id="payment-button-amount">Save</span>
+                                                    <span id="regv" style="display:none;">Registering</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>    
+
+<!-- MODDEL FOR EDIT BRANCH -->
+
+         <div class="modal fade" id="largeModalEdit" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
+                <div class="modal-dialog modal-lg" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="largeModalLabel"></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                <span aria-hidden="true">&times;</span>
+                            </button>
+                        </div>
+                        <div class="modal-body">
+                           <div class="card">
+                                    <div class="card-body">
+                                        <div class="card-title">
+                                            <h3 class="text-center title-2">Branch Edit</h3>
+                                        </div>
+                                        <hr>
+                                        <form id="formEdit" name="editingform">                                           
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Branch Name *</label>
+                                                        <input id="model_brnchnm" name="brnchnm" type="text" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter branch name"
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                    
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="x_card_code" class="control-label mb-1">Building Name*</label>
+                                                        <div class="form-group">
+                                                            <input id="model_bld" name="bld" type="text" class="form-control cc-cvc" value="" data-val="true" placeholder="Please enter the mobile" autocomplete="off">
+
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div> 
+                                            <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Place*</label>
+                                                        <input id="model_plc" name="plc" type="text" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter place" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                    
+                                                 <div class="col-6">
+                                                      <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">City*</label>
+                                                        <input id="model_cty" name="cty" type="tel" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter city" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                   
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Zip code*</label>
+                                                        <input id="model_pin" name="pin" type="number" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter the pin"
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                  
+                                                </div>
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Post*</label>
+                                                        <input id="model_pst" name="pst" type="tel" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter post" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Select District *</label>
+                                                        <select id="model_sdist" name="sdist" type="text" class="form-control cc-exp">
+                                                            <option value="">Select district</option>
+                                                            <option value="Kasagode">Kasargode</option>
+                                                            <option value="Kannur">Kannur</option>
+                                                            <option value="Kozhikode">Kozhikode</option>
+                                                            <option value="Wayanad">Wayanad</option>
+                                                            <option value="Malappuram">Malappuram</option>
+                                                            <option value="Palakkad">Palakkad</option>
+                                                            <option value="Thrissur">Thrissur</option>
+                                                            <option value="Ernakulam">Eranakulam</option>
+                                                            <option value="Alapuzha">Alappuzha</option>
+                                                            <option value="Idukki">Idukki</option>
+                                                            <option value="Kottayam">Kottayam</option>
+                                                            <option value="Pathanamthitta">Pathanamthitta</option>
+                                                            <option value="Kollam">Kollam</option>
+                                                            <option value="Thiruvanandapuram">Thiruvanandapuram</option>
+                                                        </select>
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                     <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">Phone *</label>
+                                                        <input id="model_phn" name="phn" type="number" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter phone"
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                             <div class="row">
+                                                <div class="col-6">
+                                                    <div class="form-group">
+                                                        <label for="cc-exp" class="control-label mb-1">E-Mail</label>
+                                                        <input id="model_mail" name="mail" type="email" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter Email" 
+                                                            autocomplete="cc-exp">
+                                                        <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
+                                                    </div>
+                                                </div>
+                                                <div class="col-6">
+                                                    <label for="x_card_code" class="control-label mb-1"> Landmark</label>
+                                                    <div class="form-group">
+                                                        <input id="model_lm" name="lm" type="tel" class="form-control cc-cvc" value="" data-val="true" placeholder="Please enter landmark" autocomplete="off">
+
+                                                    </div>
+                                                </div>
+                                            </div>
+                                           <input type="hidden" name="bid" id="model_bid" value="">
+                                            <div>
+                                                <button id="reg" type="submit" class="btn btn-lg btn-info btn-block">
+                                                    <i class="fa fa-lock fa-lg"></i>&nbsp;
+                                                    <span id="payment-button-amount">Update</span>
+                                                    <span id="regv" style="display:none;">Updating</span>
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                        </div>
+                       
+                    </div>
+                </div>
+            </div>
+
+
+
+
+    <!-- Jquery JS-->
+<script src="vendor/jquery-3.2.1.min.js"></script>
+    <!-- Bootstrap JS-->
+    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <!-- Vendor JS       -->
+    <script src="vendor/slick/slick.min.js">
+    </script>
+    <script src="vendor/wow/wow.min.js"></script>
+    <script src="vendor/animsition/animsition.min.js"></script>
+    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js">
+    </script>
+    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="vendor/counter-up/jquery.counterup.min.js">
+    </script>
+    <script src="vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
+<script src="vendor/select2/select2.min.js">
+
+    </script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+
+    <!-- Main JS-->
+    <script src="js/main.js"></script>
+
+
+ <script type="text/javascript" charset="utf-8" async defer>
+
+
+//  Function for Branch field validate and Register
+
+$(function() {
+  // Initialize form validation on the registration form.
+  $("form[name='registration']").validate({
+    // Specify validation rules
+    rules: {
+      // on the right side
+      brnchnm: "required",
+      phn: "required",
+      sdist: "required",
+      plc: "required",
+      cty: "required",
+      pin: "required",
+      pst: "required",
+      bld:"required",
+    },
+    // Specify validation error messages
+    messages: {
+      brnchnm: "Please enter branch name",
+      bld: "Please enter building name",
+      phn: "Please enter phone number",
+      sdist: "Please select one district",
+      plc: "Please enter place",
+      cty: "Please enter city",
+      pin: "Please enter pin code",
+      pst: "Please enter post name",
+    },
+    unhighlight: function (element) {
+         $("select").removeClass("error");
+         $("input").removeClass("error");
+    },
+    // Make sure the form is submitted to the destination defined
+    // in the "action" attribute of the form when valid
+    submitHandler: function(form) {
+      // form.submit();
+                var bn = $("#brnchnm").val();
+                var bld = $("#bld").val();
+                var dst = $("#sdist").val();
+                var pl = $("#plc").val();
+                var ph = $("#phn").val();
+                var ct = $("#cty").val();
+                var eml = $("#mail").val();
+                var pn = $("#pin").val();
+                var pt = $("#pst").val();
+                var lnd = $("#lm").val();
+                    $.getJSON('http://192.168.1.67:4700/branchregistration', {
+                        branch_name: bn,
+                        branch_building: bld,
+                        branch_district: dst,
+                        branch_place: pl,
+                        branch_city:ct,
+                        branch_email:eml,
+                        branch_phone:ph,
+                        branch_pincode:pn,
+                        branch_post:pt,
+                        branch_landmark:lnd
+                    }, function (data) {
+                        $('.alertmsg').css('display','block')  
+                        // alert box hide after 2 seconds
+                        $('.alertmsg').delay(2000).fadeOut();
+                        fetchdoc();
+                      $('#largeModal').modal('hide')  
+                });
+            }
+          });
+   });
+
+//  Function for Branch field validate and update
+
+    $(function() {
+      // Initialize form validation on the registration form.
+      $("form[name='editingform']").validate({
+        // Specify validation rules
+        rules: {
+          // on the right side
+          brnchnm: "required",
+          bld: "required",
+          phn: "required",
+          sdist: "required",
+          plc: "required",
+          cty: "required",
+          pin: "required",
+          pst: "required",
+        },
+        // Specify validation error messages
+        messages: {
+          brnchnm: "Please enter branch name",
+          bld: "Please enter building name",
+          phn: "Please enter phone number",
+          sdist: "Please select one district",
+          plc: "Please enter place",
+          cty: "Please enter city",
+          pin: "Please enter pin code",
+          pst: "Please enter post name",
+        },
+        unhighlight: function (element) {
+             $("select").removeClass("error");
+             $("input").removeClass("error");
+         },
+        // Make sure the form is submitted to the destination defined
+        // in the "action" attribute of the form when valid
+        submitHandler: function(form) {
+                    var bid = $("#model_bid").val();
+                    var bn = $("#model_brnchnm").val();
+                    var bld = $("#model_bld").val();
+                    var dst = $("#model_sdist").val();
+                    var pl = $("#model_plc").val();
+                    var ph = $("#model_phn").val();
+                    var ct = $("#model_cty").val();
+                    var eml = $("#model_mail").val();
+                    var pn = $("#model_pin").val();
+                    var pt = $("#model_pst").val();
+                    var lnd = $("#model_lm").val();
+                $.getJSON('http://192.168.1.67:4700/updatebranch', {
+                            bid: bid,
+                            name: bn,
+                            building: bld,
+                            district: dst,
+                            place: pl,
+                            city:ct,
+                            email:eml,
+                            phone:ph,
+                            pin:pn,
+                            post:pt,
+                            landmark:lnd
+                        }, function (data) {
+                            $('.alertmsg').css('display','block')  
+                                      // alert box hide after 2 seconds
+                            $('.alertmsg').delay(2000).fadeOut();
+                            fetchdoc();
+                              $('#largeModalEdit').modal('hide')  
+                            
+           
+                    });
+                }
+              });
+    });
+
+// Clear model items when hide the model
+    $('#largeModalEdit').on('hidden.bs.modal', function () {
+        // $(this).find("input,textarea,select").val('').end();
+        $(this).find("input,textarea,select").removeClass('error')
+        $("label[class='error']").css('display','none')
+    });
+
+    $('#largeModal').on('hidden.bs.modal', function () {
+        $(this).find("input,textarea,select").val('').end();
+        $(this).find("input,textarea,select").removeClass('error')
+        $("label[class='error']").css('display','none')
+    });
+
+// Function for Branch View
+
+    function fetchdoc() {
+        var htmcnt='';
+            $.getJSON('http://192.168.1.67:4700/viewbranch', function (data) {
+                console.log(JSON.stringify(data));
+                for (var i = 0; i < data.length; i++) {
+                     htmcnt=htmcnt+'<tr><td>'+data[i].name+'</td>'+
+                     '<td>'+data[i].building+'</td>'+
+                     '<td>'+data[i].district+'</td>'+
+                     '<td>'+data[i].email+'</td>'+
+                     '<td style="text-align: center;"><button type="" class="btn btn-primary"  onclick="editbranch('+data[i].branch_id+');">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger dltBtn" data-id='+data[i].branch_id+'>Delete</button></td></tr>';
+
+                }
+               $('.branchtab').html(htmcnt)
+        
+           });   
+    } 
+
+ $(document).on('click','.dltBtn',function(){
+    var id=$(this).data('id');
+    $('.dlt').val(id);
+   $('#staticModal').modal('show');
+
+ }); 
+
+// Function for Branch list delete entry
+
+   function deletebranch() {
+       var id= $('.dlt').val();
+            $.ajax({
+                  url: "http://192.168.1.67:4700/deletebranch?branchid="+id,
+                  type: 'GET',
+                })
+                .done(function(data) {
+                  $('.alertmsg').css('display','block')  
+                          // alert box hide after 2 seconds
+                  $('.alertmsg').delay(2000).fadeOut();
+                  $('#staticModal').modal('hide');
+                  fetchdoc();
+                })
+                .fail(function(data) {
+                  console.log("error");
+                });    
+    }
+
+// Function for Branch edit datas setting on model
+
+    function editbranch(id) {
+            $.ajax({
+                  url: "http://192.168.1.67:4700/editbranch?branchid="+id,
+                  type: 'GET',
+                  dataType: 'json',
+                })
+                .done(function(data) {
+                    console.log(data)
+                  $('#model_brnchnm').val(data.name)
+                  $('#model_bld').val(data.building)
+                  $("#model_sdist").val(data.district).find("option[value=" + data.district +"]").attr('selected', true);
+                  $('#model_plc').val(data.place);
+                  $('#model_phn').val(data.phone)
+                  $('#model_cty').val(data.city)
+                  $('#model_mail').val(data.email)
+                  $('#model_pin').val(data.pin)
+                  $('#model_pst').val(data.post)
+                  $('#model_lm').val(data.landmark)
+                  $('#model_bid').val(id)
+                })
+                .fail(function() {
+                  console.log("error");
+                });
+                
+                $('#largeModalEdit').modal('show')
+    }
+
+</script>
+</body>
+
+</html>
+<!-- end document-->
