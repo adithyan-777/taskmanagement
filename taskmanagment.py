@@ -9,7 +9,7 @@ from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
 
-ALLOWED_EXTENSIONS = set(["jpg", "jpeg", "png"])
+ALLOWED_EXTENSIONS = {"jpg", "jpeg", "png"}
 
 app = Flask(__name__)
 
@@ -917,21 +917,22 @@ def edit_task():
 
 @app.route('/update_task')
 def update_task():
-
-    cm,con=connection()
-    task_id=request.args.get('task_id')
+    cm, con = connection()
+    task_id = request.args.get('task_id')
     task_name = request.args.get('task')
     expected_cost = request.args.get('cost')
     pro_day = request.args.get('pday')
-    cm.execute("UPDATE task SET `task`='"+task_name+"',`processdays`='"+pro_day+"',`cost`='"+expected_cost+"',`last_updated`=NOW()  WHERE `task_id` = '"+task_id+"'")
+    cm.execute(
+        "UPDATE task SET `task`='" + task_name + "',`processdays`='" + pro_day + "',`cost`='" + expected_cost + "',`last_updated`=NOW()  WHERE `task_id` = '" + task_id + "'")
 
     doct = request.args.get('docs_ids')
     val = doct.split(',')
 
     for i in val:
 
-        cm.execute("SELECT * FROM `task_document` WHERE `task_id` = '"+task_id+"' AND `document_id` = '"+str(i)+"'")
-        res=cm.fetchone()
+        cm.execute(
+            "SELECT * FROM `task_document` WHERE `task_id` = '" + task_id + "' AND `document_id` = '" + str(i) + "'")
+        res = cm.fetchone()
         if res is None:
             cm.execute("insert into task_document VALUES (NULL,'" + task_id + "','" + str(i) + "',NOW(),NOW())")
             con.commit()
@@ -1010,21 +1011,25 @@ def updateexp():
     return jsonify(status="ok")
 
 
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
 @app.route("/org_reg", methods=["POST"])
 def orgreg():
     cm, con = connection()
-    oname = request.form["orgm"]
-    place = request.form["place"]
+    oname = request.form["orgnm"]
+    place = request.form["plc"]
     post = request.form["post"]
-    pin = request.form["pin"]
+    pin = request.form["zcode"]
     email = request.form["email"]
-    wbst = request.form["web"]
-    contact = request.form["contact"]
-    registry = request.form["regi"]
-    gstin = request.form["gst"]
-    # photo = ""
-
-    if not "image" in request.files:
+    wbst = request.form["wsite"]
+    contact = request.form["wmob"]
+    registry = request.form["creg"]
+    gstin = request.form["gstin"]
+    #photo = ""
+    file = request.files["image"]
+    if file is None:
         photo = "male.png"
     else:
         file = request.files["image"]
@@ -1036,8 +1041,18 @@ def orgreg():
             return (
                 """<script>alert("Only JPEG, JPG & PNG Files Allowed..!!");</script>"""
             )
-    ademp = (
-            "insert  into `organisation` values('"
+
+    print(oname)
+    print(place)
+    print(post)
+    print(pin)
+    print(email)
+    print(wbst)
+    print(contact)
+    print(registry)
+    print(gstin)
+    ademp =(
+            "insert  into `organisation`(`org_name`,`place`,`post`,`pin`,`email`,`website`,`contact`,`registry`,`gstin`,`image`) values('"
             + oname
             + "','"
             + place
@@ -1045,8 +1060,6 @@ def orgreg():
             + post
             + "','"
             + pin
-            + "','"
-            + place
             + "','"
             + email
             + "','"
@@ -1057,15 +1070,12 @@ def orgreg():
             + registry
             + "','"
             + gstin
-            + "'"
-    )
+            + "','"
+            + photo
+            + "')")
     cm.execute(ademp)
     con.commit()
     return jsonify(status="ok")
-
-
-def allowed_file(filename):
-    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 if __name__ == "__main__":
