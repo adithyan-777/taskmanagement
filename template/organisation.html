@@ -646,10 +646,10 @@ img.avt{
   function fetchdoc() {
        
      var htmcnt='';
-                $.getJSON('http://192.168.1.67:4700/view_employee', function (data) {
+                $.getJSON('http://127.0.0.1:5000/view_employee', function (data) {
                     for (var i = 0; i < data.length; i++) {
                          htmcnt=htmcnt+'<tr><td class="hidden">'+data[i].id+'</td>'+
-                         '<td><img class="avt" src="http://192.168.1.67:4700/static/uploads/'+data[i].image+'"/></td>'+
+                         '<td><img class="avt" src="http://127.0.0.1:5000/static/uploads/'+data[i].image+'"/></td>'+
                          '<td>'+data[i].org_name+' '+data[i].place+'</td>'+
                          '<td>'+data[i].email+'</td>'+
                          '<td>'+data[i].contact+'</td>'+
@@ -669,7 +669,7 @@ img.avt{
 
     $(document).on('click','.add_emp_btn',function(){
          var htmcnt='';
-            $.getJSON('http://192.168.1.67:4700/viewbranch', function (data) {
+            $.getJSON('http://127.0.0.1:5000/viewbranch', function (data) {
                 console.log(JSON.stringify(data));
                      htmcnt=htmcnt+'<option value = "">Please Select one</option>';
                 for (var i = 0; i < data.length; i++) {
@@ -686,7 +686,7 @@ img.avt{
 
    function populate_branch(){
          var htmcnt='';
-            $.getJSON('http://192.168.1.67:4700/viewbranch', function (data) {
+            $.getJSON('http://127.0.0.1:5000/viewbranch', function (data) {
                 console.log(JSON.stringify(data));
                      htmcnt=htmcnt+'<option value = "">Please Select one</option>';
                 for (var i = 0; i < data.length; i++) {
@@ -710,7 +710,7 @@ img.avt{
         function deleteemployee() {
              var id= $('.dlt').val();
             $.ajax({
-                  url: "http://192.168.1.67:4700/delete_employee?employee_id="+id,
+                  url: "http://127.0.0.1:5000/delete_employee?employee_id="+id,
                   type: 'GET',
                 })
                 .done(function(data) {
@@ -781,7 +781,7 @@ img.avt{
                           contentType: false,
                           cache: false,
                           processData:false,
-                          url:"http://192.168.1.67:4700/org_reg",
+                          url:"http://127.0.0.1:5000/org_reg",
                           success: function (response) {
                               $('.alertmsg').css('display','block')  
                                 // alert box hide after 2 seconds
@@ -803,7 +803,7 @@ img.avt{
         function editdoc(id) {
             // populate_branch();
            $.ajax({
-                  url:  "http://192.168.1.67:4700/edit_org?id="+id,
+                  url:  "http://127.0.0.1:5000/edit_org?id="+id,
                   type: 'GET',
                   dataType: 'json',
                 })
@@ -899,7 +899,7 @@ img.avt{
                           contentType: false,
                           cache: false,
                           processData:false,
-                          url:"http://192.168.1.67:4700/update_employee",
+                          url:"http://127.0.0.1:5000/update_employee",
                           success: function (response) {
                               $('.alertmsg').css('display','block')  
                                 // alert box hide after 2 seconds

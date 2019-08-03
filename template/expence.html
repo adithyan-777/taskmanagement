@@ -416,7 +416,7 @@
       // alert("hhhhh");
       // console.log("kjgjhgjh")
         var htmcnt='';
-        $.getJSON('http://192.168.1.67:4700/view_expense', function (data)
+        $.getJSON('http://127.0.0.1:5000/view_expense', function (data)
         {
             // console.log(data);
             for (var i = 0; i < data.length; i++)
@@ -449,7 +449,7 @@
             var did = $("#model_did").val();
             var expnm = $("#expnm").val();
         
-            $.getJSON('http://192.168.1.67:4700/update_expense', {
+            $.getJSON('http://127.0.0.1:5000/update_expense', {
                             expid: did,
                             name: expnm
                             
@@ -466,7 +466,7 @@
 function edit_expense(id) {
     $('#model_did').val(id)
     $.ajax({
-                  url: "http://192.168.1.67:4700/edit_expense?expid="+id,
+                  url: "http://127.0.0.1:5000/edit_expense?expid="+id,
                   type: 'GET',
                   dataType: 'json',
                 })
@@ -493,7 +493,7 @@ function delete_expense(id) {
     // Function for Branch list delete entry
        var id= $('.dlt').val();
             $.ajax({
-                  url: "http://192.168.1.67:4700/delete_expense?dex="+id,
+                  url: "http://127.0.0.1:5000/delete_expense?dex="+id,
                   type: 'GET',
                 })
                 .done(function(data) {
@@ -526,7 +526,7 @@ function delete_expense(id) {
     {
         var dcn = $("#expname").val();
         alert(dcn);
-        $.getJSON('http://192.168.1.67:4700/expense_reg',
+        $.getJSON('http://127.0.0.1:5000/expense_reg',
         {
             expense_category: dcn
             

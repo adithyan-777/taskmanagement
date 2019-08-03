@@ -658,7 +658,7 @@ $(function() {
                 var pn = $("#pin").val();
                 var pt = $("#pst").val();
                 var lnd = $("#lm").val();
-                    $.getJSON('http://192.168.1.67:4700/branchregistration', {
+                    $.getJSON('http://127.0.0.1:5000/branchregistration', {
                         branch_name: bn,
                         branch_building: bld,
                         branch_district: dst,
@@ -726,7 +726,7 @@ $(function() {
                     var pn = $("#model_pin").val();
                     var pt = $("#model_pst").val();
                     var lnd = $("#model_lm").val();
-                $.getJSON('http://192.168.1.67:4700/updatebranch', {
+                $.getJSON('http://127.0.0.1:5000/updatebranch', {
                             bid: bid,
                             name: bn,
                             building: bld,
@@ -768,7 +768,7 @@ $(function() {
 
     function fetchdoc() {
         var htmcnt='';
-            $.getJSON('http://192.168.1.67:4700/viewbranch', function (data) {
+            $.getJSON('http://127.0.0.1:5000/viewbranch', function (data) {
                 console.log(JSON.stringify(data));
                 for (var i = 0; i < data.length; i++) {
                      htmcnt=htmcnt+'<tr><td>'+data[i].name+'</td>'+
@@ -795,7 +795,7 @@ $(function() {
    function deletebranch() {
        var id= $('.dlt').val();
             $.ajax({
-                  url: "http://192.168.1.67:4700/deletebranch?branchid="+id,
+                  url: "http://127.0.0.1:5000/deletebranch?branchid="+id,
                   type: 'GET',
                 })
                 .done(function(data) {
@@ -814,7 +814,7 @@ $(function() {
 
     function editbranch(id) {
             $.ajax({
-                  url: "http://192.168.1.67:4700/editbranch?branchid="+id,
+                  url: "http://127.0.0.1:5000/editbranch?branchid="+id,
                   type: 'GET',
                   dataType: 'json',
                 })
