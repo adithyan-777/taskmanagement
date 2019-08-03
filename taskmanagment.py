@@ -9,7 +9,6 @@ from werkzeug.utils import secure_filename
 import os
 from datetime import datetime
 
-
 ALLOWED_EXTENSIONS = set(["jpg", "jpeg", "png"])
 
 app = Flask(__name__)
@@ -44,11 +43,11 @@ def log():
     username = request.args.get("user")
     password = request.args.get("password")
     r = (
-        "select * from login where username='"
-        + username
-        + "' and password='"
-        + password
-        + "'"
+            "select * from login where username='"
+            + username
+            + "' and password='"
+            + password
+            + "'"
     )
     cm.execute(r)
     ab = cm.fetchone()
@@ -74,12 +73,12 @@ def doc():
     document = request.args.get("doc")
 
     d = (
-        "insert into document(document_name,creator_id,created_date,last_updated)VALUES ('"
-        + document
-        + "','"
-        + str(a)
- #       + str(session["uid"])
-        + "',NOW(),NOW())"
+            "insert into document(document_name,creator_id,created_date,last_updated)VALUES ('"
+            + document
+            + "','"
+            + str(a)
+            #       + str(session["uid"])
+            + "',NOW(),NOW())"
     )
     cm, con = connection()
     cm.execute(d)
@@ -90,7 +89,6 @@ def doc():
 
 @app.route("/view_document")
 def viewdoc():
-
     vdoc = "select * from document"
     cm, con = connection()
     cm.execute(vdoc)
@@ -107,7 +105,6 @@ def viewdoc():
 
 @app.route("/delete_document")
 def deldoc():
-
     did = request.args.get("docid")
     d = "delete from document where document_id='" + did + "'"
     cm, con = connection()
@@ -118,7 +115,6 @@ def deldoc():
 
 @app.route("/edit_document")
 def editdoc():
-
     did = request.args.get("docid")
     edtdoc = "select * from document where document_id='" + did + "'"
     cm, con = connection()
@@ -129,19 +125,18 @@ def editdoc():
 
 @app.route("/update_document")
 def updatedoc():
-
     did = request.args.get("docid")
     docname = request.args.get("docname")
     print(did, docname)
     a = 1
     upd = (
-        "update document set document_name='"
-        + docname
-        + "', created_date=NOW(), creator_id='"
-        + str(a)
-        + "',last_updated=NOW() where document_id='"
-        + did
-        + "'"
+            "update document set document_name='"
+            + docname
+            + "', created_date=NOW(), creator_id='"
+            + str(a)
+            + "',last_updated=NOW() where document_id='"
+            + did
+            + "'"
     )
     cm, con = connection()
     cm.execute(upd)
@@ -151,7 +146,6 @@ def updatedoc():
 
 @app.route("/taskregdoc")
 def tskregdoc():
-
     tdc = "select * from document"
     cm, con = connection()
     cm.execute(tdc)
@@ -168,19 +162,18 @@ def tskregdoc():
 
 @app.route("/taskregistration")
 def tskreg():
-
     tname = request.args.get("task")
     tcost = request.args.get("cost")
     tday = request.args.get("days")
     cm, con = connection()
     tsk = (
-        "insert into task_registration(task,processdays,cost)VALUES ('"
-        + tname
-        + "','"
-        + tday
-        + "','"
-        + tcost
-        + "')"
+            "insert into task_registration(task,processdays,cost)VALUES ('"
+            + tname
+            + "','"
+            + tday
+            + "','"
+            + tcost
+            + "')"
     )
     cm.execute(tsk)
     con.commit()
@@ -189,11 +182,11 @@ def tskreg():
     val = did.split(",")
     for i in val:
         res = (
-            "insert into task_document(task_id,document_id)VALUES ('"
-            + str(tskid)
-            + "','"
-            + (i)
-            + "')"
+                "insert into task_document(task_id,document_id)VALUES ('"
+                + str(tskid)
+                + "','"
+                + (i)
+                + "')"
         )
         cm.execute(res)
         con.commit()
@@ -202,7 +195,6 @@ def tskreg():
 
 @app.route("/viewtask")
 def tskview():
-
     cm, con = connection()
     abc = "select * from task_registration"
     cm.execute(abc)
@@ -219,13 +211,12 @@ def tskview():
 
 @app.route("/viewtaskdocuments")
 def viewtskdoc():
-
     cm, con = connection()
     tskid = request.args.get("tid")
     res = (
-        "select task_document.*,task_registration.*,document.* from task_document inner join task_registration on task_document.task_id=task_registration.task_id inner join document on task_document.document_id=document.document_id where task_document.task_id='"
-        + tskid
-        + "'"
+            "select task_document.*,task_registration.*,document.* from task_document inner join task_registration on task_document.task_id=task_registration.task_id inner join document on task_document.document_id=document.document_id where task_document.task_id='"
+            + tskid
+            + "'"
     )
     cm.execute(res)
     ab = cm.fetchall()
@@ -241,7 +232,6 @@ def viewtskdoc():
 
 @app.route("/deletetask")
 def deltsk():
-
     cm, con = connection()
     dlt = request.args.get("tskid")
     ddlt = "delete from task_document where task_id='" + dlt + "'"
@@ -255,7 +245,6 @@ def deltsk():
 
 @app.route("/edittaskdocument")
 def edittskdoc():
-
     cm, con = connection()
     updoc = request.args.get("tskid")
     up = "select * from task_document where task_id='" + updoc + "'"
@@ -273,7 +262,6 @@ def edittskdoc():
 
 @app.route("/edittask")
 def edittsk():
-
     cm, con = connection()
     uppt = request.args.get("tid")
     utt = "select * from task_registration where task_id='" + uppt + "'"
@@ -284,7 +272,6 @@ def edittsk():
 
 @app.route("/taskdeletdoc")
 def tskdeldoc():
-
     cm, con = connection()
     kkd = request.args.get("docid")
     ddlt2 = "delete from task_document where task_id='" + kkd + "'"
@@ -295,22 +282,21 @@ def tskdeldoc():
 
 @app.route("/updatetask")
 def updtsk():
-
     cm, con = connection()
     kk = request.args.get("docid")
     qq = request.args.get("task")
     rr = request.args.get("processday")
     yy = request.args.get("cost")
     ii = (
-        "update task_reg set task='"
-        + qq
-        + "',processdays='"
-        + rr
-        + "',cost='"
-        + yy
-        + "' where task_id='"
-        + kk
-        + "'"
+            "update task_reg set task='"
+            + qq
+            + "',processdays='"
+            + rr
+            + "',cost='"
+            + yy
+            + "' where task_id='"
+            + kk
+            + "'"
     )
     cm.execute(ii)
     con.commit()
@@ -318,11 +304,11 @@ def updtsk():
     val = xx.split(",")
     for i in val:
         njk = (
-            "insert into task_document(task_id,document_id)VALUES ('"
-            + kk
-            + "','"
-            + (i)
-            + "')"
+                "insert into task_document(task_id,document_id)VALUES ('"
+                + kk
+                + "','"
+                + (i)
+                + "')"
         )
         cm.execute(njk)
         con.commit()
@@ -339,7 +325,6 @@ def brnch():
 
 @app.route("/branchregistration")
 def addbranch():
-
     name = request.args.get("branch_name")
     district = request.args.get("branch_district")
     place = request.args.get("branch_place")
@@ -352,27 +337,27 @@ def addbranch():
     phone = request.args.get("branch_phone")
 
     breg = (
-        "insert into branch VALUES (NULL, '"
-        + name
-        + "','"
-        + district
-        + "','"
-        + place
-        + "','"
-        + city
-        + "','"
-        + post
-        + "','"
-        + landmark
-        + "','"
-        + building
-        + "','"
-        + pin
-        + "','"
-        + email
-        + "','"
-        + phone
-        + "',NOW(),NOW())"
+            "insert into branch VALUES (NULL, '"
+            + name
+            + "','"
+            + district
+            + "','"
+            + place
+            + "','"
+            + city
+            + "','"
+            + post
+            + "','"
+            + landmark
+            + "','"
+            + building
+            + "','"
+            + pin
+            + "','"
+            + email
+            + "','"
+            + phone
+            + "',NOW(),NOW())"
     )
     cm, con = connection()
     cm.execute(breg)
@@ -382,7 +367,6 @@ def addbranch():
 
 @app.route("/viewbranch")
 def vbr():
-
     cm, con = connection()
     vb = "select * from branch"
     cm.execute(vb)
@@ -399,7 +383,6 @@ def vbr():
 
 @app.route("/deletebranch")
 def dbr():
-
     print("ddd")
 
     bid = request.args.get("branchid")
@@ -412,7 +395,6 @@ def dbr():
 
 @app.route("/editbranch")
 def ebr():
-
     dbv = request.args.get("branchid")
     cd = "select * from branch where branch_id='" + dbv + "'"
     cm, con = connection()
@@ -436,7 +418,6 @@ def ebr():
 
 @app.route("/updatebranch")
 def ub():
-
     branch_id = request.args.get("bid")
     name = request.args.get("name")
     district = request.args.get("district")
@@ -450,29 +431,29 @@ def ub():
     phone = request.args.get("phone")
 
     upbranc = (
-        "update branch set name='"
-        + name
-        + "',district='"
-        + district
-        + "',place='"
-        + place
-        + "',city='"
-        + city
-        + "',post='"
-        + post
-        + "',building='"
-        + building
-        + "',pincode='"
-        + pin
-        + "',landmark='"
-        + landmark
-        + "',email='"
-        + email
-        + "',phone='"
-        + phone
-        + "',last_updated= NOW() where branch_id='"
-        + str(branch_id)
-        + "'"
+            "update branch set name='"
+            + name
+            + "',district='"
+            + district
+            + "',place='"
+            + place
+            + "',city='"
+            + city
+            + "',post='"
+            + post
+            + "',building='"
+            + building
+            + "',pincode='"
+            + pin
+            + "',landmark='"
+            + landmark
+            + "',email='"
+            + email
+            + "',phone='"
+            + phone
+            + "',last_updated= NOW() where branch_id='"
+            + str(branch_id)
+            + "'"
     )
     cm, con = connection()
     cm.execute(upbranc)
@@ -531,7 +512,6 @@ def ub():
 
 @app.route("/employee_registration", methods=["POST"])
 def empreg():
-
     cm, con = connection()
     type = request.form["jpos"]
     branch_id = request.form["branch"]
@@ -570,51 +550,51 @@ def empreg():
             )
 
     inlo = (
-        "insert into login(username,password,user_type)VALUES ('"
-        + username
-        + "','"
-        + password
-        + "','"
-        + type
-        + "')"
+            "insert into login(username,password,user_type)VALUES ('"
+            + username
+            + "','"
+            + password
+            + "','"
+            + type
+            + "')"
     )
     cm.execute(inlo)
     con.commit()
     id = cm.lastrowid
     ademp = (
-        "insert into employee VALUES ('"
-        + str(id)
-        + "','"
-        + fname
-        + "','"
-        + lname
-        + "','"
-        + gender
-        + "','"
-        + dob
-        + "','"
-        + address
-        + "','"
-        + place
-        + "','"
-        + district
-        + "','"
-        + pin
-        + "','"
-        + status
-        + "','"
-        + email
-        + "','"
-        + work_email
-        + "','"
-        + mobile
-        + "','"
-        + work_mobile
-        + "','"
-        + photo
-        + "','"
-        + branch_id
-        + "',NOW(),NOW())"
+            "insert into employee VALUES ('"
+            + str(id)
+            + "','"
+            + fname
+            + "','"
+            + lname
+            + "','"
+            + gender
+            + "','"
+            + dob
+            + "','"
+            + address
+            + "','"
+            + place
+            + "','"
+            + district
+            + "','"
+            + pin
+            + "','"
+            + status
+            + "','"
+            + email
+            + "','"
+            + work_email
+            + "','"
+            + mobile
+            + "','"
+            + work_mobile
+            + "','"
+            + photo
+            + "','"
+            + branch_id
+            + "',NOW(),NOW())"
     )
     cm.execute(ademp)
     con.commit()
@@ -627,7 +607,6 @@ def allowed_file(filename):
 
 @app.route("/view_employee")
 def view_employee():
-
     cm, con = connection()
     viem = "SELECT `employee`.*,`branch`.`name`,`login`.`user_type` FROM  `branch`  INNER JOIN  `employee` ON `employee`.`branch_id` = `branch`.`branch_id` INNER JOIN `login` ON `employee`.`employee_id` = `login`.`id`"
     cm.execute(viem)
@@ -644,7 +623,6 @@ def view_employee():
 
 @app.route("/delete_employee")
 def delete_employee():
-
     dem = request.args.get("employee_id")
     cm, con = connection()
     cm.execute("delete from employee where employee_id='" + dem + "'")
@@ -655,12 +633,11 @@ def delete_employee():
 
 @app.route("/edit_employee")
 def edit_employee():
-
     emp_id = request.args.get("empid")
     vmm = (
-        "SELECT `employee`.*,`branch`.`name`,`login`.`user_type`,`login`.`username`,`login`.`password`  FROM  `branch`  INNER JOIN  `employee` ON `employee`.`branch_id` = `branch`.`branch_id` INNER JOIN `login` ON `employee`.`employee_id` = `login`.`id` AND `login`.`id` = '"
-        + emp_id
-        + "'"
+            "SELECT `employee`.*,`branch`.`name`,`login`.`user_type`,`login`.`username`,`login`.`password`  FROM  `branch`  INNER JOIN  `employee` ON `employee`.`branch_id` = `branch`.`branch_id` INNER JOIN `login` ON `employee`.`employee_id` = `login`.`id` AND `login`.`id` = '"
+            + emp_id
+            + "'"
     )
     cm, con = connection()
     cm.execute(vmm)
@@ -677,7 +654,6 @@ def edit_employee():
 
 @app.route("/update_employee", methods=["POST"])
 def update_employee():
-
     cm, con = connection()
 
     emp_id = request.form["empid"]
@@ -754,7 +730,6 @@ def update_employee():
 
 @app.route("/expense_reg")
 def expense_reg():
-
     expense_category = request.args.get("expense_category")
     cm, con = connection()
     cm.execute(
@@ -768,7 +743,6 @@ def expense_reg():
 
 @app.route("/view_expense")
 def view_expense():
-
     i = "select * from expense_category"
     cm, con = connection()
     cm.execute(i)
@@ -785,7 +759,6 @@ def view_expense():
 
 @app.route("/delete_expense")
 def delete_expense():
-
     p = request.args.get("dex")
     y = "delete from expense_category where(id='" + p + "')"
     cm, con = connection()
@@ -799,12 +772,11 @@ def delete_expense():
 
 @app.route("/edit_expense")
 def edit_expense():
-
     expense_category_id = request.args.get("expid")
     udt = (
-        "select * from expense_registration where(expense_id='"
-        + expense_category_id
-        + "')"
+            "select * from expense_category where(id='"
+            + expense_category_id
+            + "')"
     )
     cm, con = connection()
     cm.execute(udt)
@@ -821,16 +793,17 @@ def edit_expense():
 
 @app.route("/update_expense")
 def update_expense():
-
     upid = request.args.get("expid")
     upt = request.args.get("name")
+
     updc = (
-        "update expense set name='"
-        + upt
-        + "',last_updated=NOW() where expense_id='"
-        + upid
-        + "'"
+            "update expense_category set name='"
+            + upt
+            + "',last_updated=NOW() where (id='"
+            + upid
+            + "')"
     )
+
     cm, con = connection()
     cm.execute(updc)
     con.commit()
@@ -839,7 +812,6 @@ def update_expense():
 
 @app.route("/task_reg")
 def task_reg():
-
     task_name = request.args.get("task")
     expected_cost = request.args.get("cost")
     pro_day = request.args.get("pday")
@@ -867,7 +839,6 @@ def task_reg():
     val = doct.split(",")
 
     for i in val:
-
         cm.execute(
             "insert into task_document VALUES (NULL,'"
             + str(x)
@@ -892,7 +863,6 @@ def delete_task():
 
 @app.route("/view_task")
 def view_task():
-
     cm, con = connection()
     abc = "select * from task"
     cm.execute(abc)
@@ -909,7 +879,6 @@ def view_task():
 
 @app.route("/view_task_doc")
 def view_task_doc():
-
     cm, con = connection()
     task_id = request.args.get("task_id")
     cm.execute(
@@ -930,7 +899,6 @@ def view_task_doc():
 
 @app.route("/edit_task")
 def edit_task():
-
     cm, con = connection()
     task_id = request.args.get("task_id")
     utt = "select * from task where task_id='" + task_id + "'"
@@ -947,39 +915,39 @@ def edit_task():
     )
 
 
-# @app.route('/update_task')
-# def update_task():
-#
-#     cm,con=connection()
-#     task_id=request.args.get('task_id')
-#     task_name = request.args.get('task')
-#     expected_cost = request.args.get('cost')
-#     pro_day = request.args.get('pday')
-#     cm.execute("UPDATE task SET `task`='"+task_name+"',`processdays`='"+pro_day+"',`cost`='"+expected_cost+"',`last_updated`=NOW()  WHERE `task_id` = '"+task_id+"'")
-#
-#     doct = request.args.get('docs_ids')
-#     val = doct.split(',')
-#
-#     for i in val:
-#
-#         cm.execute("SELECT * FROM `task_document` WHERE `task_id` = '"+task_id+"' AND `document_id` = '"+str(i)+"'")
-#         res=cm.fetchone()
-#         if res is None:
-#             cm.execute("insert into task_document VALUES (NULL,'" + task_id + "','" + str(i) + "',NOW(),NOW())")
-#             con.commit()
-#         else:
-#             cm.execute("")
-#     return jsonify(status="ok")
+@app.route('/update_task')
+def update_task():
+
+    cm,con=connection()
+    task_id=request.args.get('task_id')
+    task_name = request.args.get('task')
+    expected_cost = request.args.get('cost')
+    pro_day = request.args.get('pday')
+    cm.execute("UPDATE task SET `task`='"+task_name+"',`processdays`='"+pro_day+"',`cost`='"+expected_cost+"',`last_updated`=NOW()  WHERE `task_id` = '"+task_id+"'")
+
+    doct = request.args.get('docs_ids')
+    val = doct.split(',')
+
+    for i in val:
+
+        cm.execute("SELECT * FROM `task_document` WHERE `task_id` = '"+task_id+"' AND `document_id` = '"+str(i)+"'")
+        res=cm.fetchone()
+        if res is None:
+            cm.execute("insert into task_document VALUES (NULL,'" + task_id + "','" + str(i) + "',NOW(),NOW())")
+            con.commit()
+        else:
+            cm.execute("")
+    return jsonify(status="ok")
 
 
 @app.route("/exp_reg")
 def exp():
     expense = request.args.get("exp")
     d = (
-        "insert into expense_category(name,created_date,last_updated)VALUES ('"
-        + expense
-        + "','"
-        + "',NOW(),NOW())"
+            "insert into expense_category(name,created_date,last_updated)VALUES ('"
+            + expense
+            + "','"
+            + "',NOW(),NOW())"
     )
     cm, con = connection()
     cm.execute(d)
@@ -990,7 +958,6 @@ def exp():
 
 @app.route("/view_exp")
 def viewexp():
-
     vexp = "select * from expense_category"
     cm, con = connection()
     cm.execute(vexp)
@@ -1007,7 +974,6 @@ def viewexp():
 
 @app.route("/delete_exp")
 def delexp():
-
     did = request.args.get("expid")
     d = "delete from expense_category where id='" + did + "'"
     cm, con = connection()
@@ -1018,7 +984,6 @@ def delexp():
 
 @app.route("/edit_exp")
 def editexp():
-
     did = request.args.get("expid")
     edtexp = "select * from expense_category where id='" + did + "'"
     cm, con = connection()
@@ -1029,21 +994,78 @@ def editexp():
 
 @app.route("/update_exp")
 def updateexp():
-
     eid = request.args.get("expid")
     ename = request.args.get("expname")
     upd = (
-        "update expense_category set name='"
-        + ename
-        + "', created_date=NOW(), '"
-        + "',last_updated=NOW() where document_id='"
-        + eid
-        + "'"
+            "update expense_category set name='"
+            + ename
+            + "', created_date=NOW(), '"
+            + "',last_updated=NOW() where document_id='"
+            + eid
+            + "'"
     )
     cm, con = connection()
     cm.execute(upd)
     con.commit()
     return jsonify(status="ok")
+
+
+@app.route("/org_reg", methods=["POST"])
+def orgreg():
+    cm, con = connection()
+    oname = request.form["orgm"]
+    place = request.form["place"]
+    post = request.form["post"]
+    pin = request.form["pin"]
+    email = request.form["email"]
+    wbst = request.form["web"]
+    contact = request.form["contact"]
+    registry = request.form["regi"]
+    gstin = request.form["gst"]
+    # photo = ""
+
+    if not "image" in request.files:
+        photo = "male.png"
+    else:
+        file = request.files["image"]
+        timestr = datetime.now().strftime("%Y%m%d-%H%M%S")
+        photo = timestr + file.filename
+        if file and allowed_file(photo):
+            file.save(os.path.join(app.root_path, "static/uploads/" + photo))
+        else:
+            return (
+                """<script>alert("Only JPEG, JPG & PNG Files Allowed..!!");</script>"""
+            )
+    ademp = (
+            "insert  into `organisation` values('"
+            + oname
+            + "','"
+            + place
+            + "','"
+            + post
+            + "','"
+            + pin
+            + "','"
+            + place
+            + "','"
+            + email
+            + "','"
+            + wbst
+            + "','"
+            + contact
+            + "','"
+            + registry
+            + "','"
+            + gstin
+            + "'"
+    )
+    cm.execute(ademp)
+    con.commit()
+    return jsonify(status="ok")
+
+
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
 
 
 if __name__ == "__main__":
