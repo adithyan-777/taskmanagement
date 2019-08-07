@@ -491,55 +491,6 @@ def ub():
     return jsonify(status="ok")
 
 
-# @app.route('/employee_registration')
-# def empreg():
-#
-#         cm,con=connection()
-#         branch_id = request.args.get('branch_id')
-#         type = request.args.get('job_type')
-#         work_email = request.args.get('work_email')
-#         work_mobile = request.args.get('work_mobile')
-#         fname = request.args.get('fname')
-#         lname = request.args.get('lname')
-#         gender = request.args.get('gender')
-#         dob=request.args.get('dob')
-#         district = request.args.get('district')
-#         address = request.args.get('address')
-#         place = request.args.get('place')
-#         pin = request.args.get('pin')
-#         status = request.args.get('status')
-#         mobile = request.args.get('mobile')
-#         email = request.args.get('email')
-#         username = request.args.get('username')
-#         password=request.args.get('password')
-#
-#         photo = ""
-#
-#         if not 'image' in request.files:
-#             if gender=='Male':
-#                 photo = "male.png"
-#             elif gender=='Female':
-#                 photo = "female.png"
-#         else:
-#             file = request.files['image']
-#             timestr = datetime.now().strftime("%Y%m%d-%H%M%S")
-#             photo = timestr + file.filename
-#             if file and allowed_file(photo):
-#                 file.save(os.path.join(app.root_path, 'static/uploads/' + photo))
-#             else:
-#                 return '''<script>alert("Only JPEG, JPG & PNG Files Allowed..!!");</script>'''
-#
-#
-#         inlo="insert into login(username,password,user_type)VALUES ('"+username+"','"+password+"','"+type+"')"
-#         cm.execute(inlo)
-#         con.commit()
-#         id = cm.lastrowid
-#         ademp="insert into employee VALUES ('"+str(id)+"','"+fname+"','"+lname+"','"+gender+"','"+dob+"','"+address+"','"+place+"','"+district+"','"+pin+"','"+status+"','"+email+"','"+work_email+"','"+mobile+"','"+work_mobile+"','"+photo+"','"+branch_id+"',NOW(),NOW())"
-#         cm.execute(ademp)
-#         con.commit()
-#         return jsonify(status="ok")
-
-
 @app.route("/employee_registration", methods=["POST"])
 def empreg():
     cm, con = connection()
