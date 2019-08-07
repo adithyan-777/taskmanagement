@@ -33,8 +33,38 @@ app.secret_key = "hi"
 
 @app.route("/")
 def ac():
-    session["login"] = ""
+ #   session["login"] = ""
     return render_template("login.html")
+
+
+@app.route("/index")
+def ind():
+    return render_template("index.html")
+
+
+@app.route("/user")
+def us():
+    return render_template("userhome.html")
+
+
+@app.route("/document.html")
+def docu():
+    return render_template("document.html")
+    
+
+@app.route("/branch.html")
+def brac():
+    return render_template("branch.html")
+
+
+@app.route("/employee.html")
+def eploe():
+    return render_template("employee.html")
+
+
+@app.route("/task.html")
+def tskk():
+    return render_template("task.html")
 
 
 @app.route("/login")

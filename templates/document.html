@@ -10,31 +10,31 @@
     <meta name="keywords" content="au theme template">
 
     <!-- Title Page-->
-    <title>Expense</title>
+    <title>Document</title>
 
     <!-- Fontfaces CSS-->
-    <link href="css/font-face.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
-    <link href="vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
-    <link href="vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
+    <link href="static/css/font-face.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-5/css/fontawesome-all.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/font-awesome-4.7/css/font-awesome.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/mdi-font/css/material-design-iconic-font.min.css" rel="stylesheet" media="all">
 
     <!-- Bootstrap CSS-->
-    <link href="vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/bootstrap-4.1/bootstrap.min.css" rel="stylesheet" media="all">
 
     <!-- Vendor CSS-->
-    <link href="vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
-    <link href="vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
-    <link href="vendor/wow/animate.css" rel="stylesheet" media="all">
-    <link href="vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
-    <link href="vendor/slick/slick.css" rel="stylesheet" media="all">
-    <link href="vendor/select2/select2.min.css" rel="stylesheet" media="all">
-    <link href="vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
+    <link href="static/vendor/animsition/animsition.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/bootstrap-progressbar/bootstrap-progressbar-3.3.4.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/wow/animate.css" rel="stylesheet" media="all">
+    <link href="static/vendor/css-hamburgers/hamburgers.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/slick/slick.css" rel="stylesheet" media="all">
+    <link href="static/vendor/select2/select2.min.css" rel="stylesheet" media="all">
+    <link href="static/vendor/perfect-scrollbar/perfect-scrollbar.css" rel="stylesheet" media="all">
 
     <!-- Main CSS-->
-    <link href="css/theme.css" rel="stylesheet" media="all">
-<script type="text/javascript" charset="utf-8" async defer>
+    <link href="static/css/theme.css" rel="stylesheet" media="all">
+<script type="static/text/javascript" charset="utf-8" async defer>
     function loaddata() {
-            fetchexp();
+            fetchdoc();
         }    
 </script>
 </head>
@@ -47,7 +47,7 @@
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
                         <a class="logo" href="index.html">
-                            <img src="images/icon/logo.png" alt="CoolAdmin" />
+                            <img src="static/images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
                             <span class="hamburger-box">
@@ -83,7 +83,7 @@
                         </li>
                          <li>
                             <a href="expence.html">
-                                <i class="fas fa-map-marker-alt"></i>Expense</a>
+                                <i class="fas fa-map-marker-alt"></i>Expences</a>
                         </li>
                          <li>
                             <a href="map.html">
@@ -99,14 +99,14 @@
         <aside class="menu-sidebar d-none d-lg-block">
             <div class="logo">
                 <a href="#">
-                    <img src="images/icon/logo.png" alt="Cool Admin" />
+                    <img src="static/images/icon/logo.png" alt="Cool Admin" />
                 </a>
             </div>
             <div class="menu-sidebar__content js-scrollbar1">
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class=" has-sub">
-                            <a class="js-arrow" href="#">
+                            <a class="js-arrow" href="index.html">
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
                             
                         </li>
@@ -128,7 +128,7 @@
                         </li>
                         <li>
                             <a href="expence.html">
-                            <i class="fas fa-map-marker-alt"></i>Expense</a>
+                            <i class="fas fa-map-marker-alt"></i>Expence</a>
                         </li>
                         <li class="has-sub">
                             <a class="js-arrow" href="#">
@@ -157,7 +157,7 @@
                                <div class="account-wrap">
                                     <div class="account-item clearfix js-item-menu">
                                         <div class="image">
-                                            <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                            <img src="static/images/icon/avatar-01.jpg" alt="John Doe" />
                                         </div>
                                         <div class="content">
                                             <a class="js-acc-btn" href="#">john doe</a>
@@ -166,7 +166,7 @@
                                             <div class="info clearfix">
                                                 <div class="image">
                                                     <a href="#">
-                                                        <img src="images/icon/avatar-01.jpg" alt="John Doe" />
+                                                        <img src="static/images/icon/avatar-01.jpg" alt="John Doe" />
                                                     </a>
                                                 </div>
                                                 <div class="content">
@@ -226,7 +226,7 @@
                               <div class="col-lg-4" style="text-align: right;">
                                 <div class="card-body">
                                 <button class="au-btn au-btn-icon au-btn--green au-btn--small" data-toggle="modal" data-target="#largeModal">
-                                    <i class="zmdi zmdi-plus"></i>Add Expense</button>
+                                    <i class="zmdi zmdi-plus"></i>Add Document</button>
                                 </div>
                              </div>
                             
@@ -238,11 +238,11 @@
                                     <table class="table table-borderless table-striped table-earning">
                                         <thead>
                                             <tr>
-                                                <th>Expense Name</th>
+                                                <th>Document Name</th>
                                                 <th class="text-center">Action</th>  
                                             </tr>
                                         </thead>
-                                        <tbody class="exp">
+                                        <tbody class="docs">
                                            
                                         </tbody>
                                     </table>
@@ -260,7 +260,7 @@
 
 
          <div class="modal fade" id="largeModal" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="expense_category">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="largeModalLabel">Large Modal</h5>
@@ -273,16 +273,16 @@
                                     <div class="card-header"></div>
                                     <div class="card-body">
                                         <div class="card-title">
-                                            <h3 class="text-center title-2">Add Expense</h3>
+                                            <h3 class="text-center title-2">Add Document</h3>
                                         </div>
                                         <hr>
-                                        <form action="" method="post" novalidate="novalidate" name="expreg">
+                                        <form action="" method="post" novalidate="novalidate" name="docreg">
                                             
                                             <div class="row">
                                                 <div class="col-6">
                                                     <div class="form-group">
                                                         
-                                                        <input id="expname" name="cc-exp" placeholder="Expense Name" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
+                                                        <input id="docname" name="cc-exp" placeholder="Document Name" type="tel" class="form-control cc-exp" value="" data-val="true" data-val-required="Please enter the card expiration"
                                                             data-val-cc-exp="Please enter a valid month and year" 
                                                             autocomplete="cc-exp">
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
@@ -290,7 +290,7 @@
                                                 </div>
                                                 <div class="col-6">
                                                     
-                                                <button id="adexp" type="button" class="btn btn-lg btn-info btn-block">
+                                                <button id="addoc" type="button" class="btn btn-lg btn-info btn-block">
                                                     <i >Add</i>&nbsp;
                                                     <span id="payment-button-amount"></span>
                                                     <span id="regv" style="display:none;">Registering</span>
@@ -314,10 +314,10 @@
              <!-- modal delete popup -->
             <div class="modal fade" id="staticModal" tabindex="-1" role="dialog" aria-labelledby="staticModalLabel" aria-hidden="true"
              data-backdrop="static">
-                <div class="modal-dialog modal-sm" role="expense_category">
+                <div class="modal-dialog modal-sm" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h5 class="modal-title" id="staticModalLabel">Delete Expense</h5>
+                            <h5 class="modal-title" id="staticModalLabel">Delete Document</h5>
                             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                                 <span aria-hidden="true">&times;</span>
                             </button>
@@ -330,7 +330,7 @@
                         <input type="hidden" name="" class="dlt" >
                         <div class="modal-footer">
                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
-                            <button type="button" class="btn btn-primary" onClick="delete_expense();">Confirm</button>
+                            <button type="button" class="btn btn-primary" onClick="delete_document();">Confirm</button>
                         </div>
                     </div>
                 </div>
@@ -341,7 +341,7 @@
             <!-- MODDEL FOR EDIT BRANCH -->
 
          <div class="modal fade" id="largeModalEdit" tabindex="-1" role="dialog" aria-labelledby="largeModalLabel" aria-hidden="true">
-                <div class="modal-dialog modal-lg" role="expense_category">
+                <div class="modal-dialog modal-lg" role="document">
                     <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title" id="largeModalLabel"></h5>
@@ -353,15 +353,15 @@
                            <div class="card">
                                     <div class="card-body">
                                         <div class="card-title">
-                                            <h3 class="text-center title-2">Edit Expense</h3>
+                                            <h3 class="text-center title-2">Edit Documents</h3>
                                         </div>
                                         <hr>
                                         <form id="formEdit" name="editingform">                                           
                                             <div class="row">
                                                 <div class="col-12">
                                                     <div class="form-group">
-                                                        <label for="cc-exp" class="control-label mb-1">Expense Name *</label>
-                                                        <input id="expnm" name="expnm" type="text" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter expense name"
+                                                        <label for="cc-exp" class="control-label mb-1">Document Name *</label>
+                                                        <input id="model_dcnm" name="docnm" type="text" class="form-control cc-exp" value="" data-val="true" placeholder="Please enter document name"
                                                             autocomplete="cc-exp">
                                                         <span class="help-block" data-valmsg-for="cc-exp" data-valmsg-replace="true"></span>
                                                     </div>
@@ -392,38 +392,35 @@
 
 
     <!-- Jquery JS-->
-    <script src="vendor/jquery-3.2.1.min.js"></script>
+    <script src="static/vendor/jquery-3.2.1.min.js"></script>
     <!-- Bootstrap JS-->
-    <script src="vendor/bootstrap-4.1/popper.min.js"></script>
-    <script src="vendor/bootstrap-4.1/bootstrap.min.js"></script>
+    <script src="static/vendor/bootstrap-4.1/popper.min.js"></script>
+    <script src="static/vendor/bootstrap-4.1/bootstrap.min.js"></script>
     <!-- Vendor JS       -->
-    <script src="vendor/slick/slick.min.js"></script>
-    <script src="vendor/wow/wow.min.js"></script>
-    <script src="vendor/animsition/animsition.min.js"></script>
-    <script src="vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
-    <script src="vendor/counter-up/jquery.waypoints.min.js"></script>
-    <script src="vendor/counter-up/jquery.counterup.min.js"></script>
-    <script src="vendor/circle-progress/circle-progress.min.js"></script>
-    <script src="vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
-    <script src="vendor/chartjs/Chart.bundle.min.js"></script>
-    <script src="vendor/select2/select2.min.js"></script>
-    <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+    <script src="static/vendor/slick/slick.min.js"></script>
+    <script src="static/vendor/wow/wow.min.js"></script>
+    <script src="static/vendor/animsition/animsition.min.js"></script>
+    <script src="static/vendor/bootstrap-progressbar/bootstrap-progressbar.min.js"></script>
+    <script src="static/vendor/counter-up/jquery.waypoints.min.js"></script>
+    <script src="static/vendor/counter-up/jquery.counterup.min.js"></script>
+    <script src="static/vendor/circle-progress/circle-progress.min.js"></script>
+    <script src="static/vendor/perfect-scrollbar/perfect-scrollbar.js"></script>
+    <script src="static/vendor/chartjs/Chart.bundle.min.js"></script>
+    <script src="static/vendor/select2/select2.min.js"></script>
+    <script src="static/http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
     <!-- Main JS-->
-    <script src="js/main.js"></script>
+    <script src="static/js/main.js"></script>
    <script type="text/javascript" charset="utf-8" async defer>
-   function fetchexp()
+   function fetchdoc()
    {
-      // alert("hhhhh");
-      // console.log("kjgjhgjh")
         var htmcnt='';
-        $.getJSON('http://127.0.0.1:5000/view_expense', function (data)
+        $.getJSON('http://127.0.0.1:5000/view_document', function (data)
         {
-            // console.log(data);
             for (var i = 0; i < data.length; i++)
              {
-                 htmcnt=htmcnt+'<tr><td>'+data[i].name+'</td><td style="text-align: center;"><button type="" class="btn btn-primary" onclick="edit_expense('+data[i].id+');">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger dltBtn" data-id='+data[i].id+'>Delete</button></td></tr>';
+                 htmcnt=htmcnt+'<tr><td>'+data[i].document_name+'</td><td style="text-align: center;"><button type="" class="btn btn-primary" onclick="edit_document('+data[i].document_id+');">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger dltBtn" data-id='+data[i].document_id+'>Delete</button></td></tr>';
              }
-           $('.exp').html(htmcnt)
+           $('.docs').html(htmcnt)
         });      
     }
     $(function() {
@@ -432,11 +429,11 @@
         // Specify validation rules
         rules: {
           // on the right side
-          expnm: "required",
+          docnm: "required",
         },
         // Specify validation error messages
         messages: {
-          expnm: "Please enter expense name",
+          docnm: "Please enter document name",
         },
         unhighlight: function (element) {
              $("select").removeClass("error");
@@ -447,33 +444,32 @@
         submitHandler: function(form) 
         {
             var did = $("#model_did").val();
-            var expnm = $("#expnm").val();
-        
-            $.getJSON('http://127.0.0.1:5000/update_expense', {
-                            expid: did,
-                            name: expnm
+            var docnm = $("#model_dcnm").val();
+            $.getJSON('http://127.0.0.1:5000/update_document', {
+                            docid: did,
+                            docname: docnm
                             
                         }, function (data) {
                             $('.alertmsg').css('display','block')  
                                       // alert box hide after 2 seconds
                             $('.alertmsg').delay(2000).fadeOut();
-                            fetchexp();
+                            fetchdoc();
                             $('#largeModalEdit').modal('hide')  
                         });
                     }
               });
         });
-function edit_expense(id) {
+function edit_document(id) {
     $('#model_did').val(id)
     $.ajax({
-                  url: "http://127.0.0.1:5000/edit_expense?expid="+id,
+                  url: "http://127.0.0.1:5000/edit_document?docid="+id,
                   type: 'GET',
                   dataType: 'json',
                 })
                 .done(function(data) 
                 {
                    console.log(data)
-                   $('#expnm').val(data[0].name)
+                   $('#model_dcnm').val(data.document_name)
                })
                 .fail(function() {
                   console.log("error");
@@ -489,11 +485,11 @@ function edit_expense(id) {
    $('#staticModal').modal('show');
 
  }); 
-function delete_expense(id) {
+function delete_document(id) {
     // Function for Branch list delete entry
        var id= $('.dlt').val();
             $.ajax({
-                  url: "http://127.0.0.1:5000/delete_expense?dex="+id,
+                  url: "http://127.0.0.1:5000/delete_document?docid="+id,
                   type: 'GET',
                 })
                 .done(function(data) {
@@ -501,7 +497,7 @@ function delete_expense(id) {
                           // alert box hide after 2 seconds
                   $('.alertmsg').delay(2000).fadeOut();
                   $('#staticModal').modal('hide');
-                  fetchexp();
+                  fetchdoc();
                 })
                 .fail(function(data) {
                   console.log("error");
@@ -522,20 +518,19 @@ function delete_expense(id) {
 
 </script>
 <script>
-    $(document).on('click', '#adexp', function () 
+    $(document).on('click', '#addoc', function () 
     {
-        var dcn = $("#expname").val();
-        alert(dcn);
-        $.getJSON('http://127.0.0.1:5000/expense_reg',
+        var dcn = $("#docname").val();
+        $.getJSON('http://127.0.0.1:5000/document_reg',
         {
-            expense_category: dcn
-            
+            doc: dcn,
+            aid:localStorage.getItem("login")
         },function (data) 
         {
                 $('.alertmsg').css('display','block')  
                 // alert box hide after 2 seconds
                 $('.alertmsg').delay(2000).fadeOut();
-                fetchexp();
+                fetchdoc();
                 $('#largeModal').modal('hide')  
         });
     });
