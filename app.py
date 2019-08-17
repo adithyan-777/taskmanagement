@@ -1127,8 +1127,8 @@ def uo():
             + "',registry='"
             + registry
             + "',gstin='"
-            + gstin
-            + "WHERE `id` = '" + orgid + "'")
+            + gstin 
+            + "'WHERE `id` = '" + orgid + "'")
     cm, con = connection()
     cm.execute(uporg)
     con.commit()
