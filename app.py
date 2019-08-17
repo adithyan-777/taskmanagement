@@ -67,6 +67,11 @@ def tskk():
     return render_template("task.html")
 
 
+@app.route("/organisation.html")
+def orgg():
+    return render_template("organisation.html")
+
+
 @app.route("/login")
 def log():
     cm, con = connection()
@@ -922,22 +927,6 @@ def update_task():
     return jsonify(status="ok")
 
 
-@app.route("/exp_reg")
-def exp():
-    expense = request.args.get("exp")
-    d = (
-            "insert into expense_category(name,created_date,last_updated)VALUES ('"
-            + expense
-            + "','"
-            + "',NOW(),NOW())"
-    )
-    cm, con = connection()
-    cm.execute(d)
-    print(d)
-    con.commit()
-    return jsonify(status="ok")
-
-
 @app.route("/view_exp")
 def viewexp():
     vexp = "select * from expense_category"
@@ -1055,5 +1044,148 @@ def orgreg():
     return jsonify(status="ok")
 
 
+@app.route("/vieworganisation")
+def vorg():
+    cm, con = connection()
+    vb = "select * from organisation"
+    cm.execute(vb)
+    ab = cm.fetchall()
+    if ab is not None:
+        row_header = [x[0] for x in cm.description]
+        json_data = []
+        for result in ab:
+            json_data.append(dict(zip(row_header, result)))
+        return jsonify(json_data)
+    else:
+        return jsonify(status="no")
+
+
+@app.route("/delete_organ")
+def delete_or():
+    p = request.args.get("orgid")
+    y = "delete from organisation where(id='" + p + "')"
+    print(p)
+    cm, con = connection()
+    n = cm.execute(y)
+    con.commit()
+    if (n) == 0:
+        return jsonify(status="no")
+    else:
+        return jsonify(status="deleted")
+
+
+@app.route("/edit_organ")
+def eor():
+    oid = request.args.get("org_id")
+    cd = "select * from organisation where id='" + oid+ "'"
+    cm, con = connection()
+    cm.execute(cd)
+    ab = cm.fetchone()
+    return jsonify(
+        status="ok",
+        id=ab[0],
+        org_name=ab[1],
+        place=ab[2],
+        post=ab[3],
+        pin=ab[4],
+        email=ab[5],
+        website=ab[6],
+        contact=ab[7],
+        registry=ab[8],
+        gstin=ab[9],
+    )
+ 
+    
+@app.route("/update_organ")
+def uo():
+    orgid = request.args.get("oid")
+    org_name = request.args.get("org_name")
+    place = request.args.get("place")
+    post = request.args.get("post")
+    pin = request.args.get("pin")
+    email = request.args.get("email")
+    website = request.args.get("website")
+    contact = request.args.get("contact")
+    registry = request.args.get("registry")
+    gstin = request.args.get("gstin")
+    print(orgid)
+    uporg = (
+            "update organisation set org_name='"
+            + org_name
+            + "',place='"
+            + place
+            + "',post='"
+            + post
+            + "',pin='"
+            + pin
+            + "',email='"
+            + email
+            + "',website='"
+            + website
+            + "',contact='"
+            + contact
+            + "',registry='"
+            + registry
+            + "',gstin='"
+            + gstin
+            + "WHERE `id` = '" + orgid + "'")
+    cm, con = connection()
+    cm.execute(uporg)
+    con.commit()
+    return jsonify(status="ok")
+
+@app.route("/exp_reg")
+def expp_reg():
+    exp_name = request.args.get("expname")
+    exp_amount = request.args.get("cost")
+    description = request.args.get("desc")
+    created_by = request.args.get("user")
+    print(exp_name)
+    cm, con = connection()
+    cm.execute(
+        "insert into expense VALUES (NULL,'"
+        + exp_name
+        + "','"
+        + exp_amount
+        + "','"
+        + description
+        +"','"
+        +created_by
+        + "')"
+    )
+    con.commit()
+    return jsonify(status="ok")
+
+@app.route("/view_expense")
+def vexp():
+    vdoc = "select * from expences"
+    cm, con = connection()
+    cm.execute(vdoc)
+    ab = cm.fetchall()
+    if ab is not None:
+        row_header = [x[0] for x in cm.description]
+        json_data = []
+        for result in ab:
+            json_data.append(dict(zip(row_header, result)))
+        return jsonify(json_data)
+    else:
+        return jsonify(status="no")
+
+@app.route("/edit_exp")
+def eexp():
+    eid = request.args.get("exp_id")
+    cd = "select * from expences where id='" + eid+ "'"
+    cm, con = connection()
+    cm.execute(cd)
+    ab = cm.fetchone()
+    return jsonify(
+        status="ok",
+        exp_id=ab[0],
+        exp_name=ab[1],
+        description=ab[2],
+        createdby=ab[3],
+    )
+
+
 if __name__ == "__main__":
-    app.run(debug=True, port=4700, host="localhost")
+    app.run(debug=True, port=4700, host="192.168.1.67")
