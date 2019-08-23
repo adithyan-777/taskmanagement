@@ -30,7 +30,6 @@ mail = Mail(app)
 
 app.secret_key = "hi"
 
-
 @app.route("/")
 def ac():
  #   session["login"] = ""
@@ -47,29 +46,34 @@ def us():
     return render_template("userhome.html")
 
 
-@app.route("/document.html")
+@app.route("/document")
 def docu():
     return render_template("document.html")
     
 
-@app.route("/branch.html")
+@app.route("/branch")
 def brac():
     return render_template("branch.html")
 
 
-@app.route("/employee.html")
+@app.route("/employee")
 def eploe():
     return render_template("employee.html")
 
 
-@app.route("/task.html")
+@app.route("/task")
 def tskk():
     return render_template("task.html")
 
 
-@app.route("/organisation.html")
+@app.route("/organisation")
 def orgg():
     return render_template("organisation.html")
+
+
+@app.route("/expence")
+def expss():
+    return render_template("expence.html")
 
 
 @app.route("/login")
@@ -1188,4 +1192,4 @@ def eexp():
 
 
 if __name__ == "__main__":
-    app.run(debug=True, port=4700, host="192.168.1.67")
+    app.run(debug=True, port=4700, host="localhost")
