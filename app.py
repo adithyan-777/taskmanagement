@@ -927,62 +927,7 @@ def update_task():
         else:
             cm.execute("")
     return jsonify(status="ok")
-
-
-# @app.route("/view_ex")
-# def viewexp():
-#     vexp = "select * from expense_category"
-#     cm, con = connection()
-#     cm.execute(vexp)
-#     ab = cm.fetchall()
-#     if ab is not None:
-#         row_header = [x[0] for x in cm.description]
-#         json_data = []
-#         for result in ab:
-#             print(result)
-#             json_data.append(dict(zip(row_header, result)))
-#         return jsonify(json_data)
-#     else:
-#         return jsonify(status="no")
-
-
-# @app.route("/delete_exp")
-# def delexp():
-#     did = request.args.get("expid")
-#     d = "delete from expense_category where id='" + did + "'"
-#     cm, con = connection()
-#     cm.execute(d)
-#     con.commit()
-#     return jsonify(status="ok")
-
-
-# @app.route("/edit_exp")
-# def editexp():
-#     did = request.args.get("expid")
-#     edtexp = "select * from expense_category where id='" + did + "'"
-#     cm, con = connection()
-#     cm.execute(edtexp)
-#     ab = cm.fetchone()
-#     return jsonify(status="ok", document_id=ab[0], document_name=ab[1])
-
-
-# @app.route("/update_exp")
-# def updateexp():
-#     eid = request.args.get("expid")
-#     ename = request.args.get("expname")
-#     upd = (
-#             "update expense_category set name='"
-#             + ename
-#             + "', created_date=NOW(), '"
-#             + "',last_updated=NOW() where document_id='"
-#             + eid
-#             + "'"
-#     )
-#     cm, con = connection()
-#     cm.execute(upd)
-#     con.commit()
-#     return jsonify(status="ok")
-
+    
 
 @app.route("/org_reg", methods=["POST"])
 def orgreg():
