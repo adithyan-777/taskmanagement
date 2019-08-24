@@ -52,7 +52,7 @@
             <div class="header-mobile__bar">
                 <div class="container-fluid">
                     <div class="header-mobile-inner">
-                        <a class="logo" href="index.html">
+                        <a class="logo" href="index">
                             <img src="static/static/images/icon/logo.png" alt="CoolAdmin" />
                         </a>
                         <button class="hamburger hamburger--slider" type="button">
@@ -67,32 +67,32 @@
                 <div class="container-fluid">
                     <ul class="navbar-mobile__list list-unstyled">
                     <li class="has-sub">
-                        <a class="js-arrow" href="index.html">
+                        <a class="js-arrow" href="/index">
                             <i class="fas fa-tachometer-alt"></i>Home</a>
                         
                         </li>
                         <li>
-                            <a href="document.html">
+                            <a href="/document">
                                 <i class="fas fa-chart-bar"></i>Document</a>
                         </li>
                         <li class="active">
-                            <a href="branch.html">
+                            <a href="/branch">
                                 <i class="far fa-check-square"></i>Branch</a>
                         </li>
                         <li>
-                            <a href="employee.html">
+                            <a href="/employee">
                                 <i class="fas fa-calendar-alt"></i>Employee</a>
                         </li>
                         <li>
-                            <a href="task.html">
+                            <a href="/task">
                                 <i class="fas fa-map-marker-alt"></i>Task</a>
                         </li>
                          <li>
-                            <a href="expence.html">
+                            <a href="/expence">
                                 <i class="fas fa-map-marker-alt"></i>Expences</a>
                         </li>
                          <li>
-                            <a href="map.html">
+                            <a href="map">
                                 <i class="fas fa-map-marker-alt"></i>UI Element</a>
                         </li>
                     </ul>
@@ -112,27 +112,27 @@
                 <nav class="navbar-sidebar">
                     <ul class="list-unstyled navbar__list">
                         <li class=" has-sub">
-                            <a class="js-arrow" href="index.html">
+                            <a class="js-arrow" href="/index">
                                 <i class="fas fa-tachometer-alt"></i>Home</a>
                         </li>
                        <li>
-                            <a href="document.html">
+                            <a href="/document">
                                 <i class="fas fa-chart-bar"></i>Document</a>
                         </li>
                         <li class="active">
-                            <a href="branch.html">
+                            <a href="/branch">
                                 <i class="far fa-check-square"></i>Branch</a>
                         </li>
                         <li>
-                            <a href="employee.html">
+                            <a href="/employee">
                                 <i class="fas fa-calendar-alt"></i>Employees</a>
                         </li>
                         <li>
-                            <a href="task.html">
+                            <a href="/task">
                                 <i class="fas fa-map-marker-alt"></i>Task</a>
                         </li>
                         <li class="has-sub">
-                            <a class="js-arrow" href="expence.html">
+                            <a class="js-arrow" href="/expence">
                                 <i class="fas fa-copy"></i>Expences</a>
                             
                         </li>
@@ -778,7 +778,7 @@ $(function() {
                      '<td style="text-align: center;"><button type="" class="btn btn-primary"  onclick="editbranch('+data[i].branch_id+');">Edit</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<button class="btn btn-danger dltBtn" data-id='+data[i].branch_id+'>Delete</button></td></tr>';
 
                 }
-               $('.branchtab').html(htmcnt)
+               $('.branchtab')(htmcnt)
         
            });   
     } 

@@ -730,8 +730,7 @@ def expense_reg():
     con.commit()
     return jsonify(status="ok")
 
-
-@app.route("/view_expense")
+@app.route("/view_expencat")
 def view_expense():
     i = "select * from expense_category"
     cm, con = connection()
@@ -745,7 +744,6 @@ def view_expense():
         return jsonify(json_data)
     else:
         return jsonify(status="no")
-
 
 @app.route("/delete_expense")
 def delete_expense():
@@ -931,58 +929,59 @@ def update_task():
     return jsonify(status="ok")
 
 
-@app.route("/view_exp")
-def viewexp():
-    vexp = "select * from expense_category"
-    cm, con = connection()
-    cm.execute(vexp)
-    ab = cm.fetchall()
-    if ab is not None:
-        row_header = [x[0] for x in cm.description]
-        json_data = []
-        for result in ab:
-            json_data.append(dict(zip(row_header, result)))
-        return jsonify(json_data)
-    else:
-        return jsonify(status="no")
+# @app.route("/view_ex")
+# def viewexp():
+#     vexp = "select * from expense_category"
+#     cm, con = connection()
+#     cm.execute(vexp)
+#     ab = cm.fetchall()
+#     if ab is not None:
+#         row_header = [x[0] for x in cm.description]
+#         json_data = []
+#         for result in ab:
+#             print(result)
+#             json_data.append(dict(zip(row_header, result)))
+#         return jsonify(json_data)
+#     else:
+#         return jsonify(status="no")
 
 
-@app.route("/delete_exp")
-def delexp():
-    did = request.args.get("expid")
-    d = "delete from expense_category where id='" + did + "'"
-    cm, con = connection()
-    cm.execute(d)
-    con.commit()
-    return jsonify(status="ok")
+# @app.route("/delete_exp")
+# def delexp():
+#     did = request.args.get("expid")
+#     d = "delete from expense_category where id='" + did + "'"
+#     cm, con = connection()
+#     cm.execute(d)
+#     con.commit()
+#     return jsonify(status="ok")
 
 
-@app.route("/edit_exp")
-def editexp():
-    did = request.args.get("expid")
-    edtexp = "select * from expense_category where id='" + did + "'"
-    cm, con = connection()
-    cm.execute(edtexp)
-    ab = cm.fetchone()
-    return jsonify(status="ok", document_id=ab[0], document_name=ab[1])
+# @app.route("/edit_exp")
+# def editexp():
+#     did = request.args.get("expid")
+#     edtexp = "select * from expense_category where id='" + did + "'"
+#     cm, con = connection()
+#     cm.execute(edtexp)
+#     ab = cm.fetchone()
+#     return jsonify(status="ok", document_id=ab[0], document_name=ab[1])
 
 
-@app.route("/update_exp")
-def updateexp():
-    eid = request.args.get("expid")
-    ename = request.args.get("expname")
-    upd = (
-            "update expense_category set name='"
-            + ename
-            + "', created_date=NOW(), '"
-            + "',last_updated=NOW() where document_id='"
-            + eid
-            + "'"
-    )
-    cm, con = connection()
-    cm.execute(upd)
-    con.commit()
-    return jsonify(status="ok")
+# @app.route("/update_exp")
+# def updateexp():
+#     eid = request.args.get("expid")
+#     ename = request.args.get("expname")
+#     upd = (
+#             "update expense_category set name='"
+#             + ename
+#             + "', created_date=NOW(), '"
+#             + "',last_updated=NOW() where document_id='"
+#             + eid
+#             + "'"
+#     )
+#     cm, con = connection()
+#     cm.execute(upd)
+#     con.commit()
+#     return jsonify(status="ok")
 
 
 @app.route("/org_reg", methods=["POST"])
@@ -1097,8 +1096,8 @@ def eor():
         contact=ab[7],
         registry=ab[8],
         gstin=ab[9],
-    )
- 
+    ) 
+    
     
 @app.route("/update_organ")
 def uo():
@@ -1140,15 +1139,15 @@ def uo():
 
 @app.route("/exp_reg")
 def expp_reg():
-    exp_name = request.args.get("expname")
+    exp_id = request.args.get("expname")
     exp_amount = request.args.get("cost")
     description = request.args.get("desc")
     created_by = request.args.get("user")
-    print(exp_name)
+    print(exp_id)
     cm, con = connection()
     cm.execute(
         "insert into expense VALUES (NULL,'"
-        + exp_name
+        + exp_id
         + "','"
         + exp_amount
         + "','"
@@ -1160,9 +1159,9 @@ def expp_reg():
     con.commit()
     return jsonify(status="ok")
 
-@app.route("/view_expense")
+@app.route("/view_ex")
 def vexp():
-    vdoc = "select * from expences"
+    vdoc = "select expences.*,expense_category.name from expences,expense_category where expences.expcat_id = expense_category.id"
     cm, con = connection()
     cm.execute(vdoc)
     ab = cm.fetchall()
@@ -1176,7 +1175,7 @@ def vexp():
         return jsonify(status="no")
 
 @app.route("/edit_exp")
-def eexp():
+def eedsxp():
     eid = request.args.get("exp_id")
     cd = "select * from expences where id='" + eid+ "'"
     cm, con = connection()
@@ -1185,11 +1184,48 @@ def eexp():
     return jsonify(
         status="ok",
         exp_id=ab[0],
-        exp_name=ab[1],
+        expcat_id=ab[1],
         description=ab[2],
         createdby=ab[3],
     )
 
 
+@app.route("/delete_exp")
+def dedslete_or():
+    p = request.args.get("expid")
+    y = "delete from expences where(id='" + p + "')"
+    print(p)
+    cm, con = connection()
+    n = cm.execute(y)
+    con.commit()
+    if (n) == 0:
+        return jsonify(status="no")
+    else:
+        return jsonify(status="deleted")
+
+
+@app.route("/exp_reg")
+def exppup_reg():
+    exp_id = request.args.get("expname")
+    exp_amount = request.args.get("cost")
+    description = request.args.get("desc")
+    created_by = request.args.get("user")
+    print(exp_id)
+    cm, con = connection()
+    cm.execute(
+        "update expense set expcat_id ='"
+        + exp_id
+        + "',exp_amount='"
+        + exp_amount
+        + "',description'"
+        + description
+        +"',created-by'"
+        +created_by
+        + "')"
+    )
+    con.commit()
+    return jsonify(status="ok")
+
+
 if __name__ == "__main__":
-    app.run(debug=True, port=4700, host="localhost")
+    app.run(debug=True, port=4700, host="192.168.1.67")
