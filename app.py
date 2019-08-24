@@ -927,7 +927,7 @@ def update_task():
         else:
             cm.execute("")
     return jsonify(status="ok")
-    
+
 
 @app.route("/org_reg", methods=["POST"])
 def orgreg():
@@ -1084,15 +1084,15 @@ def uo():
 
 @app.route("/exp_reg")
 def expp_reg():
-    exp_id = request.args.get("expname")
+    expcat_id = request.args.get("expcatid")
     exp_amount = request.args.get("cost")
     description = request.args.get("desc")
     created_by = request.args.get("user")
-    print(exp_id)
+    print(expcat_id)
     cm, con = connection()
     cm.execute(
-        "insert into expense VALUES (NULL,'"
-        + exp_id
+        "insert into expences VALUES (NULL,'"
+        + expcat_id
         + "','"
         + exp_amount
         + "','"
@@ -1149,7 +1149,7 @@ def dedslete_or():
         return jsonify(status="deleted")
 
 
-@app.route("/exp_reg")
+@app.route("/exp_update")
 def exppup_reg():
     exp_id = request.args.get("expname")
     exp_amount = request.args.get("cost")
