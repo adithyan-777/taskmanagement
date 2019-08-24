@@ -1115,6 +1115,7 @@ def vexp():
         json_data = []
         for result in ab:
             json_data.append(dict(zip(row_header, result)))
+            print(result)
         return jsonify(json_data)
     else:
         return jsonify(status="no")
@@ -1122,23 +1123,24 @@ def vexp():
 @app.route("/edit_exp")
 def eedsxp():
     eid = request.args.get("exp_id")
-    cd = "select * from expences where id='" + eid+ "'"
+    cd = "select * from expences where exp_id='" + eid+ "'"
     cm, con = connection()
     cm.execute(cd)
     ab = cm.fetchone()
+    # ls = "select name from expense_category where id='"a[1]"
     return jsonify(
         status="ok",
         exp_id=ab[0],
         expcat_id=ab[1],
-        description=ab[2],
-        createdby=ab[3],
+        exp_amount=ab[2],
+        description=ab[3]
     )
 
 
 @app.route("/delete_exp")
 def dedslete_or():
-    p = request.args.get("expid")
-    y = "delete from expences where(id='" + p + "')"
+    p = request.args.get("exp_id")
+    y = "delete from expences where(exp_id='" + p + "')"
     print(p)
     cm, con = connection()
     n = cm.execute(y)
@@ -1151,23 +1153,107 @@ def dedslete_or():
 
 @app.route("/exp_update")
 def exppup_reg():
-    exp_id = request.args.get("expname")
+    exp_id = request.args.get("expid")
+    expcatid = request.args.get("expcatid")
     exp_amount = request.args.get("cost")
     description = request.args.get("desc")
-    created_by = request.args.get("user")
     print(exp_id)
     cm, con = connection()
     cm.execute(
-        "update expense set expcat_id ='"
-        + exp_id
+        "update expences set expcat_id ='"
+        + expcatid
         + "',exp_amount='"
         + exp_amount
-        + "',description'"
+        + "',description='"
         + description
-        +"',created-by'"
-        +created_by
-        + "')"
+        +"' WHERE exp_id='"+exp_id+"'"
     )
+    con.commit()
+    return jsonify(status="ok")
+    
+
+@app.route('/view_customer')
+def vcus():
+    cm, con = connection()
+    vb = "select * from customer"
+    cm.execute(vb)
+    ab = cm.fetchall()
+    if ab is not None:
+        row_header = [x[0] for x in cm.description]
+        json_data = []
+        for result in ab:
+            json_data.append(dict(zip(row_header, result)))
+        return jsonify(json_data)
+    else:
+        return jsonify(status="no")
+
+
+@app.route('/delete_customer')
+def dcus():
+    cusid = request.args.get('customer_id')
+    cm, con = connection()
+    dd = "delete from customer where customer_id='"+cusid+"'"
+    cm.execute(dd)
+    con.commit()
+    return jsonify(status="ok")
+
+
+@app.route('/customer_registration')
+def addcustomer():
+    cus_type = request.args.get('customer_type')
+    fname = request.args.get('customer_firstname')
+    lname = request.args.get('customer_lastname')
+    gender = request.args.get('customer_gender')
+    dob = request.args.get('customer_dob')
+    hname = request.args.get('customer_housename')
+    place = request.args.get('customer_place')
+    post = request.args.get('customer_address')
+    pin = request.args.get('customer_pin')
+    phone = request.args.get('customer_phone')
+    email = request.args.get('customer_email')
+    creator_id = request.args.get('empid')
+    if cus_type == "Single":
+        org = 0
+    else:
+        org = request.args.get('customer_organization')
+    empid = request.args.get('empid')
+    cm, con = connection()
+    ab = "SELECT branch_id from employee where employee_id = '" + str(creator_id) + "'"
+    cm.execute(ab)
+    bran = cm.fetchone()
+    cusrg = "insert into customer VALUES (NULL, '"+cus_type+"','"+str(org)+"','"+fname+"','"+lname+"','"+gender+"','"+dob+"','"+hname+"','"+place+"','"+post+"','"+pin+"','"+phone+"','"+email+"','"+str(bran[0])+"','"+str(empid)+"')"
+    cm.execute(cusrg)
+    con.commit()
+    return jsonify(status="ok")
+
+
+@app.route('/edit_customer')
+def ecus():
+    cid = request.args.get('customer_id')
+    cr = "SELECT `customer`.*,`organization`.`org_name` FROM `customer` LEFT JOIN `organization` ON `customer`.`organization_id`=`organization`.`id` WHERE customer.customer_id='"+cid+"'"
+    cm, con = connection()
+    cm.execute(cr)
+    ab = cm.fetchone()
+    return jsonify(status="ok", customer_id=ab[0], customer_type=ab[1], org_name=ab[15], first_name=ab[3], last_name=ab[4], gender=ab[5], dob=ab[6], house_name=ab[7], place=ab[8], post_address=ab[9], pincode=ab[10], phoneno=ab[11], email=ab[12])
+
+
+@app.route('/update_customer')
+def uc():
+    customer_id = request.args.get('cusid')
+    fname = request.args.get('customer_firstname')
+    lname = request.args.get('customer_lastname')
+    gender = request.args.get('customer_gender')
+    dob = request.args.get('customer_dob')
+    hname = request.args.get('customer_housename')
+    place = request.args.get('customer_place')
+    post = request.args.get('customer_address')
+    pin = request.args.get('customer_pin')
+    phone = request.args.get('customer_phone')
+    email = request.args.get('customer_email')
+
+    upcus = "update customer set first_name='"+fname+"',last_name='"+lname+"',gender='"+gender+"',dob='"+dob+"',house_name='"+hname+"',place='"+place+"',post_address='"+post+"',pincode='"+pin+"',phoneno='"+phone+"',email='"+email+"' where customer_id='"+customer_id+"'"
+    cm, con = connection()
+    cm.execute(upcus)
     con.commit()
     return jsonify(status="ok")
 
